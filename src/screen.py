@@ -1,5 +1,16 @@
 from math import ceil
-from dry.base_gui import assert_positive
+from typing import Union
+from dry.core import Error
+
+
+class LogicError(Error):
+    pass
+
+
+def assert_positive(value: Union[int, float], name: str) -> None:
+    if value <= 0:
+        raise LogicError(
+            f'Ошибка!\n{name} - значение отрицательно или равно нулю')
 
 
 class GridProfile:

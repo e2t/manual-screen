@@ -6,7 +6,7 @@ from dry.qt import msgbox, BaseMainWindow, move_cursor_to_begin, \
     get_float_number
 from dry.core import InputException
 import gui
-from screen import Screen
+from screen import Screen, LogicError
 
 
 MAX_WIDTH = 1500
@@ -35,8 +35,12 @@ class MainWindow(BaseMainWindow, gui.Ui_Dialog):
         except InputException as err:
             msgbox(str(err))
         else:
-            screen = Screen(width, length, gap)
-            self.output_results(screen, width, length)
+            try:
+                screen = Screen(width, length, gap)
+            except LogicError as err:
+                msgbox(str(err))
+            else:
+                self.output_results(screen, width, length)
 
     def output_results(self, screen: Screen, width: float,
                        length: float) -> None:
