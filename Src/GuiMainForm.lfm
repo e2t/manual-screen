@@ -1,0 +1,84 @@
+object MainForm: TMainForm
+  Left = 423
+  Height = 219
+  Top = 224
+  Width = 584
+  Caption = 'MainForm'
+  ClientHeight = 219
+  ClientWidth = 584
+  KeyPreview = True
+  OnCreate = FormCreate
+  OnKeyPress = FormKeyPress
+  Position = poDefaultPosOnly
+  LCLVersion = '2.0.12.0'
+  object Label1: TLabel
+    AnchorSideTop.Control = EditWidth
+    AnchorSideTop.Side = asrCenter
+    Left = 8
+    Height = 15
+    Top = 12
+    Width = 178
+    Caption = 'Ширина решетки в канале (мм):'
+    ParentColor = False
+  end
+  object Label2: TLabel
+    AnchorSideTop.Control = EditLength
+    AnchorSideTop.Side = asrCenter
+    Left = 8
+    Height = 15
+    Top = 44
+    Width = 158
+    Caption = 'Общая длина решетки (мм):'
+    ParentColor = False
+  end
+  object Label3: TLabel
+    AnchorSideTop.Control = EditGap
+    AnchorSideTop.Side = asrCenter
+    Left = 8
+    Height = 15
+    Top = 76
+    Width = 74
+    Caption = 'Прозор (мм):'
+    ParentColor = False
+  end
+  object EditWidth: TEdit
+    Left = 200
+    Height = 23
+    Top = 8
+    Width = 80
+    TabOrder = 0
+  end
+  object EditLength: TEdit
+    Left = 200
+    Height = 23
+    Top = 40
+    Width = 80
+    TabOrder = 1
+  end
+  object EditGap: TEdit
+    Left = 200
+    Height = 23
+    Top = 72
+    Width = 80
+    TabOrder = 2
+  end
+  object MemoOutput: TMemo
+    Left = 288
+    Height = 168
+    Top = 8
+    Width = 288
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    ReadOnly = True
+    TabOrder = 3
+  end
+  object ButtonRun: TButton
+    Left = 501
+    Height = 25
+    Top = 184
+    Width = 75
+    Anchors = [akRight, akBottom]
+    Caption = 'Расчет'
+    OnClick = ButtonRunClick
+    TabOrder = 4
+  end
+end
